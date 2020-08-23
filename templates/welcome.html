@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flask Intro</title>
-</head>
-<body>
-<div class="container">
-    <h1>Welcome to Flask!</h1>
-    <br>
-    <p>click <a href="/">here</a> to go home </p>
- {% for message in get_flashed_messages() %}
-        {{ message }}
-    {% endfor %}
-</div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Welcome to Flask!</h1>
+<br>
+<p>Click <a href="/">here</a> to go home.</p>
+
+{% endblock %}
