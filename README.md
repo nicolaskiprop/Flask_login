@@ -2,8 +2,8 @@
 ## create a virtual environment
      virtualenv env --python=python3.8
     
-##Activate environment
-    source env/bin/activate
+## Activate environment
+     source env/bin/activate
 
 #### Create app.py with the following content
         from flask import Flask
