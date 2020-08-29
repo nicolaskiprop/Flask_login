@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash, g
+from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
 import sqlite3
 
@@ -6,7 +7,10 @@ import sqlite3
 app = Flask(__name__)
 # config
 app.secret_key = "skodo"
-app.database = "sample.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+# create sqlalchemy objects
+db = SQLAlchemy(app)
 
 
 # login required decorator
@@ -59,8 +63,8 @@ def logout():
 
 
 # connect to database
-def connect_db():
-    return sqlite3.connect(app.database)
+# def connect_db():
+#     return sqlite3.connect(app.database)
 
 
 # start the server with the run() method
