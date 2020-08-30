@@ -6,9 +6,13 @@ import sqlite3
 # create the application object
 app = Flask(__name__)
 # config
-app.secret_key = "skodo"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+import os
+
+app.config.from_object(os.environ['APP_SETTINGS'])
+# app.secret_key = "skodo"
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
 # create sqlalchemy objects
 db = SQLAlchemy(app)
 
@@ -64,8 +68,8 @@ def logout():
 
 
 # connect to database
-# def connect_db():
-#     return sqlite3.connect(app.database)
+def connect_db():
+    return sqlite3.connect('posts.db')
 
 
 # start the server with the run() method

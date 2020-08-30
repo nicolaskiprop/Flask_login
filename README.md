@@ -18,8 +18,17 @@
 
         if __name__ == '__main__':
             app.run(debug=True)
-
+## skipped
   
-    
+### add a configuration file 
+add config.py in the main directory
  
- 
+## export APP_SETTINGS
+      export APP_SETTINGS="config.DevelopmentConfig"  
+### update config.py to search the environment for the variable DATABASE_URL:
+       
+       SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+## add the DATABASE_URL environment
+        export DATABASE_URL="sqlite:///posts.db"
+        
+      
